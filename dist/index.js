@@ -8,6 +8,8 @@ var _http = _interopRequireDefault(require("http"));
 
 var _uuid = require("uuid");
 
+var _socket2 = require("socket.io-parser");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
@@ -61,7 +63,8 @@ io.on('connection', function (socket) {
     });
     io.emit('server:loadnotes', notes);
   });
-}); // app.listen(3000)
+});
+var PORT = process.env.PORT || 3000; // app.listen(3000)
 
-server.listen(3000);
-console.log('server on port', 3000);
+server.listen(PORT);
+console.log('server on port', PORT);

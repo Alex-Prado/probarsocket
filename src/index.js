@@ -3,6 +3,7 @@ import express from "express";
 import { Server as webSocketServer } from "socket.io";
 import http from 'http'
 import { v4 as uuid } from "uuid";
+import { protocol } from "socket.io-parser";
 
 let notes = [];
 
@@ -52,6 +53,7 @@ io.on('connection', (socket) => {
 });
 
 
+const PORT = process.env.PORT || 3000
 // app.listen(3000)
-server.listen(3000)
-console.log('server on port', 3000);
+server.listen(PORT)
+console.log('server on port', PORT);
